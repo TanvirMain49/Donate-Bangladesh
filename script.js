@@ -36,7 +36,8 @@ function handleDonation(cardInputID, cardBalanceID, currentBalanceID, locationNa
     const inputValue = getInputNumber(cardInputID);
     const currentBalance = getInnerTextNumber(currentBalanceID);
     if (currentBalance < inputValue) {
-        alert('Not enough Balance')
+        alert('Not enough Balance');
+        document.getElementById(cardInputID).value = '';
         return;
     }
 
@@ -54,7 +55,8 @@ function handleDonation(cardInputID, cardBalanceID, currentBalanceID, locationNa
 
     }
     else {
-        alert('Not a valid input')
+        alert('Not a valid input');
+        document.getElementById(cardInputID).value = '';
     }
 
     const locationName = document.getElementById(locationNameID).innerText
