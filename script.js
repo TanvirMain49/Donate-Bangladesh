@@ -3,6 +3,8 @@ const donateBtnEL = document.getElementById('donate-btn')
 const donationSectionEl = document.getElementById('donation-section')
 const historySectionEl = document.getElementById('history-section')
 const modal = document.getElementById('my_modal_1')
+const modal2 = document.getElementById('my_modal_2')
+const modal3 = document.getElementById('my_modal_3')
 const blogBtn = document.getElementById('blog-btn')
 
 
@@ -36,41 +38,46 @@ function handleDonation(cardInputID, cardBalanceID, currentBalanceID, locationNa
     const inputValue = getInputNumber(cardInputID);
     const currentBalance = getInnerTextNumber(currentBalanceID);
     if (currentBalance < inputValue) {
-        alert('Not enough Balance');
+        modal2.showModal();
+        document.getElementById('btn2-close').addEventListener('click', function () {
+            modal2.close();
+        })
         document.getElementById(cardInputID).value = '';
         return;
     }
 
-    if (inputValue > 0) {
+    if (inputValue > 0 && !isNaN(inputValue)) {
         const cardBalance = getInnerTextNumber(cardBalanceID);
         const newCardBalance = cardBalance + inputValue;
         document.getElementById(cardBalanceID).innerText = newCardBalance;
         document.getElementById(cardInputID).value = '';
         calculateCurrentBalance(inputValue);
+        const locationName = document.getElementById(locationNameID).innerText
+        const donationMessage = `
+            <div class="border-2 border-gray-200 md:p-8 p-4 space-y-4 rounded-xl">
+              <h1 class="md:text-xl text-base font-bold">
+                ${inputValue} Taka is ${locationName}
+              </h1>
+              <p class="text-sm text-gray-500">
+                 Date: ${new Date().toString()}
+              </p>
+            </div>
+        `
+        historySectionEl.innerHTML += donationMessage;
         modal.showModal();
         document.getElementById('btn-close').addEventListener('click', function () {
             modal.close();
         })
-
-
     }
     else {
-        alert('Not a valid input');
+        modal3.showModal();
+        document.getElementById('btn3-close').addEventListener('click', function () {
+            modal3.close();
+        })
         document.getElementById(cardInputID).value = '';
     }
 
-    const locationName = document.getElementById(locationNameID).innerText
-    const donationMessage = `
-        <div class="border-2 border-gray-200 md:p-8 p-4 space-y-4 rounded-xl">
-          <h1 class="md:text-xl text-base font-bold">
-            ${inputValue} Taka is ${locationName}
-          </h1>
-          <p class="text-sm text-gray-500">
-             Date: ${new Date().toString()}
-          </p>
-        </div>
-    `
-    historySectionEl.innerHTML += donationMessage;
+
 
 }
 
