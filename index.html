@@ -26,27 +26,29 @@
         background-color: #b4f461;
         color: black;
       }
-
     </style>
   </head>
   <body>
     <header
-      class="bg-[#ede9e0] md:border-b-2 md:border-gray-200 md:fixed md:w-full md:z-10 md:bg-opacity-30 md:backdrop-blur-md"
+      class="bg-[#ede9e0] md:border-b-2 border-gray-200 fixed w-full z-10 bg-opacity-30 backdrop-blur-lg"
     >
       <!-- navBar section start-->
       <nav
-        class="md:px-32 px-3 py-5 flex justify-between items-center md:flex-row md:backdrop-filter bg-[#f5f0e2] md:bg-opacity-20 md:backdrop-blur-md"
+        class="md:px-32 px-3 py-5 flex justify-between items-center backdrop-filter bg-[#f5f0e2] bg-opacity-30 backdrop-blur-lg"
       >
         <!-- blog btn -->
         <button
-          class="btn btn-primaries text-lg font-bold px-8 lg:inline-block hidden"
+          id="blog-btn"
+          class="btn btn-primaries text-lg font-bold px-8 lg:inline-block"
         >
           Blog
         </button>
 
         <!-- logo -->
         <div>
-          <div class="flex items-center lg:gap-x-4 gap-x-2">
+          <div
+            class="flex items-center md:flex-row flex-col lg:gap-x-4 gap-x-2"
+          >
             <img src="assets/logo.png" alt="" />
             <h1 class="lg:text-xl text-sm font-bold text-black">
               Donate Bangladesh
@@ -59,7 +61,7 @@
           <div class="flex items-center gap-x-2 lg:flex-row flex-col">
             <img src="assets/coin.png" alt="" />
             <p class="lg:text-lg text-sm text-[#111111] font-semibold">
-              <span>550</span>
+              <span id="current-balance">50000</span>
               <span>BDT</span>
             </p>
           </div>
@@ -68,14 +70,12 @@
 
       <!-- !donate and history btn section start -->
       <section
-        class="flex justify-center items-center gap-x-3 md:pt-16 md:pb-8 md:px-0 px-3 pt-8 pb-6 md:bg-transparent bg-white"
+        class="flex justify-center items-center md:gap-x-10 gap-x-3 md:pt-16 md:pb-8 md:px-0 px-3 pt-8 pb-6 "
       >
         <button
-          class="btn btn-primaries text-lg font-bold px-8 lg:hidden inline-block"
+          id="donate-btn"
+          class="btn btn-primaries text-lg font-bold px-8"
         >
-          Blog
-        </button>
-        <button id="donate-btn" class="btn btn-primaries text-lg font-bold px-8">
           Donation
         </button>
         <button
@@ -92,7 +92,10 @@
 
     <main>
       <!-- !donation section start -->
-      <section id="donation-section" class="md:px-36 md:pt-64 px-3 pb-6 pt-6 space-y-8">
+      <section
+        id="donation-section"
+        class="md:px-36 md:pt-72 px-3 pb-6 pt-56 space-y-8"
+      >
         <!-- card 1 -->
         <div
           class="flex justify-between md:flex-row flex-col gap-4 border-2 border-gray-100 rounded-xl p-8"
@@ -109,15 +112,15 @@
               class="flex items-center gap-2 px-4 py-3 rounded-md bg-gray-100 mb-4"
             >
               <img src="assets/coin.png" alt="" />
-              <p>
-                <span>0</span>
+              <p class="font-bold">
+                <span id="card1-balance">0</span>
                 <span>BDT</span>
               </p>
             </button>
 
             <!-- text part-> text description -->
             <div class="space-y-4 mb-4">
-              <h1 class="text-xl font-bold">
+              <h1 id="location-1" class="text-xl font-bold">
                 Donate for Flood at Noakhali, Bangladesh
               </h1>
               <p class="">
@@ -130,18 +133,19 @@
               </p>
             </div>
 
-            <!-- text part-> input field and btn -->
+            <!-- !text part-> input field and btn -->
             <div class="space-y-5">
               <!-- input -->
               <input
+                id="card1-input-field"
                 type="number"
                 name=""
-                id=""
                 placeholder="Write Donation Amount"
                 class="border-2 border-gray-200 w-full py-4 px-4 rounded-xl"
               />
-              <!-- btn -->
+              <!-- !btn -->
               <button
+                id="donate-amount-btn-1"
                 class="btn-primaries text-lg font-bold px-8 py-4 rounded-xl w-full text-center"
               >
                 Donation
@@ -166,15 +170,15 @@
               class="flex items-center gap-2 px-4 py-3 rounded-md bg-gray-100 mb-4"
             >
               <img src="assets/coin.png" alt="" />
-              <p>
-                <span>600</span>
+              <p class="font-bold">
+                <span id="card2-balance">600</span>
                 <span>BDT</span>
               </p>
             </button>
 
             <!-- text part-> text description -->
             <div class="space-y-4 mb-6">
-              <h1 class="text-xl font-bold">
+              <h1 id="location-2" class="text-xl font-bold">
                 Donate for Flood Relief in Feni,Bangladesh
               </h1>
               <p class="">
@@ -193,6 +197,7 @@
             <div class="space-y-6">
               <!-- input -->
               <input
+                id="card2-input-field"
                 type="number"
                 name=""
                 id=""
@@ -201,6 +206,7 @@
               />
               <!-- btn -->
               <button
+                id="donate-amount-btn-2"
                 class="btn-primaries text-lg font-bold px-8 py-4 rounded-xl w-full text-center"
               >
                 Donation
@@ -225,15 +231,15 @@
               class="flex items-center gap-2 px-4 py-3 rounded-md bg-gray-100 mb-4"
             >
               <img src="assets/coin.png" alt="" />
-              <p>
-                <span>2400</span>
+              <p class="font-bold">
+                <span id="card3-balance">2400</span>
                 <span>BDT</span>
               </p>
             </button>
 
             <!-- text part-> text description -->
             <div class="space-y-4 mb-6">
-              <h1 class="text-xl font-bold">
+              <h1 id="location-3" class="text-xl font-bold">
                 Aid for Injured in the Quota Movement
               </h1>
               <p class="">
@@ -253,6 +259,7 @@
             <div class="space-y-6">
               <!-- input -->
               <input
+                id="card3-input-field"
                 type="number"
                 name=""
                 id=""
@@ -261,6 +268,7 @@
               />
               <!-- btn -->
               <button
+                id="donate-amount-btn-3"
                 class="btn-primaries text-lg font-bold px-8 py-4 rounded-xl w-full text-center"
               >
                 Donation
@@ -272,26 +280,41 @@
       <!-- !donation section end -->
 
       <!-- !History section start -->
-      <section id="history-section" class="md:px-36 md:pt-64 px-3 py-6 space-y-8 hidden">
-        <div class="border-2 border-gray-200 md:p-8 p-4 space-y-4 rounded-xl">
+      <section
+        id="history-section"
+        class="md:px-36 md:pt-64 px-3 py-6 space-y-8 hidden"
+      >
+        <!-- <div class="border-2 border-gray-200 md:p-8 p-4 space-y-4 rounded-xl">
           <h1 class="md:text-xl text-base font-bold">
             96500 Taka is Donated for famine-2024 at Feni, Bangladesh
           </h1>
           <p class="text-sm text-gray-500">
             Date : Tue Sep 17 2024 08:39:11 GMT +0600 (Bangladesh Standard Time)
           </p>
-        </div>
-
-        <div class="border-2 border-gray-200 md:p-8 p-4 space-y-4 rounded-xl">
-          <h1 class="md:text-xl text-base font-bold">
-            96500 Taka is Donated for famine-2024 at Feni, Bangladesh
-          </h1>
-          <p class="text-sm text-gray-500">
-            Date : Tue Sep 17 2024 08:39:11 GMT +0600 (Bangladesh Standard Time)
-          </p>
-        </div>
+        </div> -->
       </section>
       <!-- !History section end -->
+
+      <!-- modal section start-->
+      <dialog id="my_modal_1" class="modal">
+        <div class="modal-box flex justify-center items-center flex-col">
+          <h3 class="text-4xl font-bold">Congrats!</h3>
+          <img src="assets/coin.png" alt="" class="h-full w-16 pt-6" />
+          <p class="py-4 text-center text-lg">
+            You have donate for humankind <br />
+            <span class="text-lg font-bold">Successfully</span>
+          </p>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button id="btn-close" class="btn btn-primaries">
+                Close confirmation
+              </button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+      <!-- modal section end-->
     </main>
 
     <!-- <footer class="bg-[#F9F7F3] h-24 mt-20"></footer> -->
